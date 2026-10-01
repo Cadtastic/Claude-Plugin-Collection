@@ -1,0 +1,36 @@
+name: Validate catalog
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Validate the marketplace
+        run: claude plugin validate . --strict
+      - name: Validate local plugins (if any)
+        run: |
+          set -e
+          shopt -s nullglob
+          for p in plugins/*/; do
+            claude plugin validate "$p" --strict
+          done
+      - name: Entry versions match the plugins at their pinned tags
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/check_versions.py

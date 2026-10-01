@@ -1,0 +1,30 @@
+{
+  "name": "cadtastic",
+  "owner": {
+    "name": "Cadtastic",
+    "url": "https://github.com/Cadtastic"
+  },
+  "description": "A collection of custom-built plugins for Claude Code and Claude Cowork by Cadtastic.",
+  "plugins": [
+    {
+      "name": "realoem-searcher",
+      "displayName": "RealOEM Searcher",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Cadtastic/RealOEM-Searcher.git",
+        "ref": "v0.1.0"
+      },
+      "version": "0.1.0",
+      "description": "Look up BMW, MINI, Rolls-Royce and BMW Motorrad parts on RealOEM.com: part numbers and supersession chains, VIN decoding, parts diagrams, fitment checks, vehicle comparison and a local vehicle finder.",
+      "author": {
+        "name": "Cadtastic",
+        "url": "https://github.com/Cadtastic"
+      },
+      "homepage": "https://github.com/Cadtastic/RealOEM-Searcher",
+      "repository": "https://github.com/Cadtastic/RealOEM-Searcher",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["bmw", "mini", "rolls-royce", "motorrad", "realoem", "oem-parts", "part-numbers", "vin-decoder", "parts-diagrams", "mcp"]
+    }
+  ]
+}
